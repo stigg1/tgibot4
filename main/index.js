@@ -1,11 +1,11 @@
 var colors = require('colors');
-var discordbot = require('../../discordbot');
+var discordbot = require('../discordbot');
 // console decorations!
 console.log('\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'.red);
 console.log('::::::::::::::::::::::::::::::::::::::::::'.bold.blue);
 console.log(':::::::'.bold.blue + ' ******(TGInquistior)****** '.red + ':::::::'.bold.blue);
 console.log('::::::::::::'.bold.blue + '    IGNORE ME!!!  '.bold.red + '::::::::::::'.bold.blue);
-console.log(':::::::'.bold.blue + ' made by Stigg1 & google \:\) '.red + ':::::::'.bold.blue);
+console.log('::::::::'.bold.blue + ' useless bot by stigg1 \:\) '.red + '::::::::'.bold.blue);
 console.log('::::::::::::::::::::::::::::::::::::::::::'.bold.blue);
 console.log('::::::::::::::::::::::::::::'.bold.blue + 'v0.0.5'.bold.magenta + '::::::::'.bold.blue);
 console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'.red);

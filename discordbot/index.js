@@ -36,7 +36,7 @@ try {
 var dangerousCommands = ["eval","pullanddeploy","setUsername"];
 var Permissions = {};
 try {
-	Permissions = require("./permissions.json");
+	Permissions = require('../permissions.json');
 } catch(e) {
 	Permissions.global = {};
 	Permissions.users = {};
@@ -75,15 +75,15 @@ try {
 	Config.debug = false;
 	Config.commandPrefix = '!';
 	try {
-		if (fs.lstatSync('../config.json').isFile()) {
-			console.log('WARNING: config.json found but we couldn\'t read it!\n' + e.stack);
+		if (fs.lstatSync("./config.json").isFile()) {
+			console.log("WARNING: config.json found but we couldn't read it!\n" + e.stack);
 		}
 	} catch(e2) {
-		fs.writeFile('../config.json',JSON.stringify(Config,null,2));
+		fs.writeFile("./config.json",JSON.stringify(Config,null,2));
 	}
 }
-if (!Config.hasOwnProperty('commandPrefix')) {
-	Config.commandPrefix = '!';
+if (!Config.hasOwnProperty("commandPrefix")) {
+	Config.commandPrefix = "!";
 }
 
 var qs = require('querystring');
