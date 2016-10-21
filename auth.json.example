@@ -1,0 +1,9 @@
+{
+	"email" : "email of the discord account here if using a user account",
+	"password" : "password of the discord account here if using a user account",
+	"bot_token" : "###",
+	"client_id" : "client id if using a bot account and you want people to be able to invite it to their server",
+	"youtube_api_key": "###",
+	"google_custom_search": "https://www.googleapis.com/customsearch/v1?key=#########",
+	"wolfram_api_key": "###"
+}

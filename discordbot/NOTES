@@ -1,0 +1,45 @@
+// NOTE: THESE CHANNEL COMMANDS CRASH BOT WHEN USED
+
+"msg": {
+	usage: "<user> <message to leave user>",
+	description: "leaves a message for a user the next time they come online",
+	process: function (bot, msg, suffix) {
+		var args = suffix.split(' ');
+		var user = args.shift();
+		var message = args.join(' ');
+		if (user.startsWith('<@')) {
+			user = user.substr(2,user.length-3);
+		}
+		var target = msg.channel.guild.members.find("id",user);
+		if(!target) {
+			target = msg.channel.guild.members.find("username",user);
+		}
+		messagebox[target.id] = {
+			channel: msg.channel.id,
+			content: target + ", " + msg.author + " said: " + message
+		};
+		updateMessagebox();
+		msg.channel.sendMessage("message saved.")
+	}
+},
+
+
+"alias": {
+  usage: "<name> <actual command>",
+  description: "Creates command aliases. Useful for making simple commands on the fly",
+  process: function(bot,msg,suffix) {
+    var args = suffix.split(" ");
+    var name = args.shift();
+    if(!name) {
+      msg.channel.sendMessage(Config.commandPrefix + "alias " + this.usage + "\n" + this.description);
+    } else if(commands[name] || name === "help") {
+        msg.channel.sendMessage("overwriting commands with aliases is not allowed!");
+    } else {
+      var command = args.shift();
+      aliases[name] = [command, args.join(" ")];
+      //now save the new alias
+      require("fs").writeFile("./alias.json",JSON.stringify(aliases,null,2), null);
+      msg.channel.sendMessage("created alias " + name);
+    }
+  }
+},
